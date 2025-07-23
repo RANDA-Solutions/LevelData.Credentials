@@ -35,6 +35,7 @@ A .NET library for generating and resolving [Decentralized Identifier (DID)](htt
    - `System.Text.Json` (>=9.x)
    - `Multiformats.Base` (2.0.2)
    - `Sodium.Core` (1.4.0)
+   - `Microsoft.Extensions.DependencyInjection` (>=3.1.32)
 ---
 
 ## Core Types
