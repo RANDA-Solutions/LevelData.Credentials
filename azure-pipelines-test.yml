@@ -1,0 +1,21 @@
+# Pipeline to run all unit tests in the solution
+name: 'Unit Test Pipeline'
+pool: Linux-Dev
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '9.x'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration Release --collect:"Code Coverage"'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/*.trx'
+    searchFolder: ''
