@@ -31,7 +31,8 @@ jobs:
         run: dotnet pack --configuration Release LevelData.Credentials.DIDForge/LevelData.Credentials.DIDForge.csproj
 
       - name: Publish the package to GitHub Packages
-        run: dotnet nuget push LevelData.Credentials.DIDForge/bin/Release/*.nupkg \
-               --source "https://nuget.pkg.github.com/RANDA-Solutions/index.json" \
-               --api-key "${{ secrets.NUGET_TOKEN }}" \
-               --skip-duplicate
+        run: |
+          dotnet nuget push LevelData.Credentials.DIDForge/bin/Release/*.nupkg \
+          --source "https://nuget.pkg.github.com/RANDA-Solutions/index.json" \
+          --api-key "${{ secrets.NUGET_TOKEN }}" \
+          --skip-duplicate
